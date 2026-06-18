@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armstrong Number Checker</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg,#4facfe,black);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container{
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 350px;
+    }
+
+    h1{
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    input{
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button{
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover{
+        background: #0056b3;
+    }
+
+    #result{
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Armstrong Number Checker</h1>
+
+    <input type="number" id="num" placeholder="Enter a Number">
+
+    <br>
+
+    <button onclick="checkArmstrong()">
+        Check
+    </button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function checkArmstrong(){
+
+    let num = document.getElementById("num").value;
+    let originalNum = num;
+    let sum = 0;
+
+    let digits = num.length;
+
+    while(num > 0){
+
+        let rem = num % 10;
+
+        sum += rem ** digits;
+
+        num = Math.floor(num / 10);
+    }
+
+    if(sum == originalNum){
+        document.getElementById("result").innerHTML =
+        originalNum + " is an Armstrong Number ✅";
+    }
+    else{
+        document.getElementById("result").innerHTML =
+        originalNum + " is NOT an Armstrong Number ❌";
+    }
+}
+</script>
+
+</body>
+</html>
